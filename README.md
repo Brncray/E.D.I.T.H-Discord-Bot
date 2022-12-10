@@ -15,4 +15,5 @@ E.D.I.T.H is a multi-purpose bot in discord. ** More commands are constantly bei
 # Fun
 
  - /poll: Starts a poll, usage: `/poll Poll goes here`
+ - /coinflip: Flips a coin, usage: `/coinflip`
 
