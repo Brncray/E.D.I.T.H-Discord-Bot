@@ -1,13 +1,26 @@
 import lightbulb 
 import hikari
+import asyncio
 
 
 bot = lightbulb.BotApp(
     token='TOKEN HERE', 
+    default_enabled_guilds=(1046571281228775464)
 )
 
 
 
+
+rest = hikari.RESTApp()
+
+TOKEN = "TOKEN ALSO GOES HERE"
+GUILD_ID = hikari.UNDEFINED
+
+async def main():
+    async with rest.acquire(TOKEN, hikari.TokenType.BOT) as client:
+        application = await client.fetch_application()
+
+        await client.set_application_commands(application.id, (), guild=GUILD_ID)
 
 #@bot.listen(hikari.GuildMessageCreateEvent)
 #async def print_message(event):
@@ -66,3 +79,5 @@ bot.run(
         type=hikari.ActivityType.STREAMING,
     ),
 )
+
+asyncio.run(main())
